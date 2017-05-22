@@ -1,2 +1,2 @@
 # dva-redux-chat
-dva+redux-chat 模仿实现PC微信聊天
+react+redux-chat 模仿实现PC微信聊天
