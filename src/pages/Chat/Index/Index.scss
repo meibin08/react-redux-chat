@@ -1,0 +1,123 @@
+@import "src/style/index";
+
+.map-find{
+    .sreach-result{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        background:#fff;
+        @include borderTop($color:#ddd);
+        overflow:hidden;
+        z-index:10;
+        .arrow{
+            @include borderBottom($color:#ddd);
+            margin:0 r(15);
+            .triangle{
+                position:relative;
+                width:r(60);
+                height:r(30);
+                margin:0 auto;
+                text-align:center;
+                -webkit-transition:-webkit-transform .3s;
+                transition:transform .3s;
+                &::after,&::before{
+                    position:absolute;
+                    left:r(19);
+                    top:r(9);
+                    content:"";
+                    border-width:12px;
+                    border-style:solid;
+                    border-color:#333 transparent transparent;
+                    z-index:1;
+                }
+                &::before{
+                    z-index:2;
+                    border-color:#fff transparent transparent;
+                    top:r(7);
+                }
+                &.shut{//收起
+                    -webkit-transform-origin:center;
+                    transform-origin:center;
+                    -webkit-transform:rotate(180deg);
+                    transform:rotate(180deg);
+                }
+            }
+        }
+        ul{
+            min-height:r(50);
+            max-height:r(150);
+            overflow:hidden;
+            overflow-y:auto;
+            padding:0 0 r(37.5);
+            -webkit-overflow-scrolling:touch;
+            overflow-scrolling:touch;
+            position:relative;
+            margin: -1px 0 0;
+        }
+        li.r-row:not(:first-child) .conent{
+
+            @include borderTop($color:#ddd);
+        }
+        li.r-row{
+            padding:0 r(15);
+            margin:-1px 0 0;
+            color:#3a3a3a;
+            .conent{padding:r(16) 0}
+            &.active{background:#00a1e9;
+                color:#fff;
+                position:relative;
+                z-index:1;
+                 .conent{border:none;}
+                 .detail .adress{color:#fff}
+                .route{
+                    // border-left:1px solid #fff;
+                    @include borderLeft($color:#fff);
+                    &::after{
+                        background-position:0 -35px;
+                    }
+                }
+            }
+            &.hide{display:none;}
+            .sort{
+                width:20px;
+                margin:0 5px 0 0;
+                text-align:center;
+                line-height:r(24);
+                font-size:15px;
+            }
+            .detail{
+                line-height:r(24);
+                h4{
+                    line-height:r(24);
+                    font-weight: bold;
+                    font-size:15px;
+                }
+                .adress{color:#929292}
+            }
+            .route{
+                margin:0 0 0 8px;
+                width:50px;
+                height:r(38);
+                // border-left:1px solid #ddd;
+                @include borderLeft($color:#fff);
+                text-align:center;
+                position:relative;
+                &::after{
+                    position:absolute;
+                    left: 50%;
+                    top: 50%;
+                    margin: -14px 0 0 -10px;
+                    content:"";
+                    width:20px;
+                    height:28px;
+                    background-image:url(./images/planning.png);
+                    background-repeat: no-repeat;
+                    -webkit-background-size:18px auto;
+                    background-size:18px auto;
+                }
+
+            }
+        }
+    }
+}
