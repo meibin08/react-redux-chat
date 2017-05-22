@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+// import Three from "src/utils/three";
 import './App.scss';
 
 class Index extends Component {
@@ -6,10 +7,7 @@ class Index extends Component {
   render() {
     return (
       <div className="app-container">
-        <p className="title">dsafdsaf</p>
-        <div>
         {this.props.children}
-        </div>
       </div>
     )
   }

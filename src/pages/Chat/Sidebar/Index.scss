@@ -1,0 +1,50 @@
+@import "src/style/index";
+
+body{
+  background: #f5f5f5 url(./images/bg.jpg) no-repeat center;
+}
+.sidebar {
+    float: left;
+    width: 200px;
+    color: #f4f4f4;
+    background-color: #2e3238;
+    height:100%;
+    .card {
+        padding: 12px;
+        border-bottom: solid 1px #24272C;
+        .user{
+            
+            .avatar{
+                width:40px;
+                height:40px;
+                border-radius:3px;
+                border:1px solid #fff;
+                background-color:#ccc;
+            }
+        }
+        footer {
+            margin-top: 10px;
+        }
+        .avatar, .name {
+            vertical-align: middle;
+        }
+        .name {
+            display: inline-block;
+            margin: 0 0 0 15px;
+            font-size: 16px;
+        }
+        .search {
+            padding: 0 10px;
+            width: 100%;
+            font-size: 12px;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+            border: solid 1px #3a3a3a;
+            border-radius: 4px;
+            outline: none;
+            background-color: #26292E;
+        }
+    }
+}
+    

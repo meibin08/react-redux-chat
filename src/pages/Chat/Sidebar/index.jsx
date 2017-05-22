@@ -9,7 +9,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import classnames from 'classnames';
 import actions from "src/actions";
-import Sidebar from "../Sidebar";
+
 // import dia from 'src/utils/dia';
 
 import './Index.scss';
@@ -17,7 +17,7 @@ import './Index.scss';
 
 
 
-class wechat extends Component{
+class Sidebar extends Component{
 	constructor(props){
 		super(props);
 
@@ -33,8 +33,16 @@ class wechat extends Component{
 	
 	render(){
 		return ( 
-			<section className="wechat">
-				<Sidebar/>
+			<section className="sidebar">
+				<div className="card">
+				    <header className="user">
+				        <img className="avatar" width="40" height="40"  src={require("images/Bin.jpg")}/>
+				        <p className="name">测试</p>
+				    </header>
+				    <footer>
+				        <input className="search" type="text" placeholder="search user..." />
+				    </footer>
+				</div>
 			</section>
 		);
 	}
@@ -52,5 +60,5 @@ let mapDispatchToProps=(dispatch)=>{
 		ACTIONS:bindActionCreators(actions,dispatch)
 	};
 };
-export default connect(mapStateToProps,mapDispatchToProps)(wechat);
+export default connect(mapStateToProps,mapDispatchToProps)(Sidebar);
 
