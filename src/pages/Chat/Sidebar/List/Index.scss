@@ -1,0 +1,61 @@
+@import "src/style/index";
+
+.logout{
+    padding:7.5px 0;
+    border-top:1px solid #292C33;
+    text-align:center;
+    button{
+        background:#fff;
+        border-radius:4px;
+        border:1px solid #d8d8d8;
+        height:25px;
+        line-height:23px;
+        padding:0 10px;
+    }
+}
+.list {
+      overflow:hidden;
+        height:455px;
+        // overflow-y: auto;
+        overflow:hidden;
+        position:relative;
+    li {
+        padding: 12px 15px;
+        border-bottom: 1px solid #292C33;
+        cursor: pointer;
+        transition: background-color .1s;
+        position:relative;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        &.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .dot{
+            position:absolute;
+            left: 42px;
+            top: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius:100%;
+            background:#f71b1b;
+        }
+    }
+    .avatar{
+        display:inline-block;
+        margin:0;
+        background:#f1f1f1;
+    }
+    .avatar img, .name {
+        vertical-align: middle;
+    }
+    .avatar {
+        border-radius: 2px;
+    }
+    .name {
+        display: inline-block;
+        margin: 0 0 0 15px;
+        max-width: 110px;
+    }
+}
+    

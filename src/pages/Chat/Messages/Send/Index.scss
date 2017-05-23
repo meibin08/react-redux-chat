@@ -1,0 +1,62 @@
+@import "src/style/index";
+
+.send {
+    height: 160px;
+    border-top: solid 1px #ddd;
+    background:#fff;
+    textarea {
+        padding: 10px;
+        height: 73%;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-family: "Micrsofot Yahei";
+        resize: none;
+    }
+    .hadler{
+        padding:5px 15px;
+        position:relative;
+        .tips{
+            &.show{
+                display:block;
+            }
+            display:none;
+            position:absolute;
+            right:8px;
+            bottom:50px;
+            border-radius:5px;
+            border:1px solid #ddd;
+            background:#fff;
+            font-size:13px;
+            padding:5px 10px;
+            box-shadow:1px 1px 3px #d8d8d8;
+            &::after,&:before{
+                content:"";
+                z-index:1;
+                position:absolute;
+                right:20px;
+                bottom:-20px;
+                border-color: #ddd transparent transparent;
+                border-style:solid;
+                border-width:10px;
+            }
+            &:before{
+                z-index:2;
+                bottom:-19px;
+                border-color: #fff transparent transparent;
+
+            }
+        }
+        button{
+            border: solid 1px #ddd;
+            padding:6px 10px;
+            background:#47484a;
+            border-radius:3px;
+            color:#fff;
+            &:active{
+                background:#656567;
+            }
+
+        }
+    }
+}

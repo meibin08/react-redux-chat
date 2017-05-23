@@ -59,7 +59,7 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'development') {
-	config.devtool = '#source-map'
+	config.devtool = 'eval-source-map';
 	config.module.loaders.push({
 	  test: /\.(js|jsx)$/,
 	  exclude: /node_modules/,

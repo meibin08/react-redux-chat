@@ -17,7 +17,7 @@ import './Index.scss';
 
 
 
-class Sidebar extends Component{
+class Messages extends Component{
 	constructor(props){
 		super(props);
 
@@ -33,26 +33,21 @@ class Sidebar extends Component{
 	
 	render(){
 		return ( 
-			<section className="sidebar">
-				<div className="card">
-				    <header className="user">
-				        <img className="avatar" width="40" height="40"  src={require("images/Bin.jpg")}/>
-				        <p className="name">测试</p>
-				    </header>
-				    <footer>
-				        <input className="search" type="text" placeholder="search user..." />
-				    </footer>
-				</div>
-			</section>
+			<div className="send">
+			    <textarea placeholder="按 Enter 发送, Ctrl + Enter 可换行" ></textarea>
+			    <p className="hadler clearfix">
+			        <button className="fl" >送客</button>
+			        <button className="fr" >发送</button>
+			        <span className="tips">不能发送空白信息或特殊字符</span>
+			    </p>
+			</div>
 		);
 	}
 };
 
 let mapStateToProps=(state)=>{
 	const {mapIndex} = state;
-	return {
-		
-	};
+	return {};
 }; 
 
 let mapDispatchToProps=(dispatch)=>{
@@ -60,5 +55,5 @@ let mapDispatchToProps=(dispatch)=>{
 		ACTIONS:bindActionCreators(actions,dispatch)
 	};
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps,mapDispatchToProps)(Messages);
 
