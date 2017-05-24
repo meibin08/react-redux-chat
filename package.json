@@ -25,6 +25,8 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
     "iscroll": "^5.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "es6-promise": "^3.2.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "fastclick": "^1.0.6",
     "file-loader": "^0.8.5",

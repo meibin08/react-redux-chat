@@ -28,97 +28,30 @@ class List extends Component{
 	componentDidMount(){
 
 	}
-	
+	Iscrolls(y){
+		// console.log(y)
+	}
 	render(){
+		let {_sessions,_currentId} = this.props;
 		return ( 
 			<div className="list-wrap">
 				<div className="list">
-					<Scroll allowScroll={false}>
+					<Scroll allowScroll={false} scrollbar="custom" onScroll={this.Iscrolls.bind(this)}>
 					    <ul>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试2</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试44</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试77</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">44测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测34试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测18试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">测试</p>
-					            <i className="dot" ></i>
-					        </li>
-					        <li >
-					            <p className="avatar">
-					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
-					            </p>
-					            <p className="name">111测试</p>
-					            <i className="dot" ></i>
-					        </li>
+					    	{
+					    	_sessions.map((item,i)=>{
+					    		return (
+					    			<li key={"index"+i} className={classnames({"active":item.id === _currentId})}>
+							            <p className="avatar">
+							                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
+							            </p>
+							            <p className="name">测试</p>
+							            <i className={classnames("dot")} ></i>
+							        </li>
+					    		);
+					    	})
+					    	}
+					        
 					    </ul>
 					</Scroll>
 				</div>
@@ -129,8 +62,12 @@ class List extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	const {mapIndex} = state;
-	return {};
+	let {sessions,user,currentUserId} = state.chatIndex;
+	return {
+		_sessions:sessions,
+		_user:user,
+		_currentId:currentUserId
+	};
 }; 
 
 let mapDispatchToProps=(dispatch)=>{

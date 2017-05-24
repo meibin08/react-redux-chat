@@ -4,5 +4,5 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-export const SEARCH_RESULT = "SEARCH_RESULT";
+export const CHAT_LOGIN = "CHAT_LOGIN";
 

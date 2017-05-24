@@ -38,7 +38,7 @@ class Messages extends Component{
 					<h3>的撒反倒是</h3>
 				</header>
 			    <div className="message" >
-			    	<Scroll  allowScroll={false}>
+			    	<Scroll  allowScroll={false} scrollbar="custom">
 				        <ul >
 				            <li className="first" ><span className="history">查看更多历史消息</span></li>
 				            <li >

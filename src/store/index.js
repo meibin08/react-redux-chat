@@ -10,8 +10,18 @@ import reducers from "src/reducers";
 function configStore (){
     let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
     //dev环境开启redux调试
-    let store  = createStoreWithMiddleware(reducers,(__DEBUG__ && window.devToolsExtension ? window.devToolsExtension() : undefined));
-    return store;
+    let cStore  = createStoreWithMiddleware(reducers,(__DEBUG__ && window.devToolsExtension ? window.devToolsExtension() : undefined));
+    return cStore;
 };
+let Store = configStore();
 
-export default configStore();
+let currentVal ;
+Store.subscribe(() => {
+	let prevVal = currentVal;
+	currentVal = Store.getState();
+	if (prevVal !== currentVal) {
+		// console.log('Some deep nested property changed from', prevVal, 'to', currentVal)
+		console.log(currentVal,'state发生了变化')
+	};
+})
+export default Store;

@@ -13,6 +13,7 @@ import Sidebar from "../Sidebar/Index";
 import Messages from "../Messages/Index";
 import Send from "../Messages/Send";
 
+
 // import dia from 'src/utils/dia';
 
 import './Index.scss';
@@ -31,7 +32,16 @@ class wechat extends Component{
 	}
 	componentDidMount(){
 		//dia(this);
+		let {ACTIONS} = this.props;
+		ACTIONS.chatLogin();
+		setTimeout(()=>{
+		ACTIONS.chatLogin();
 
+		},2000);
+		setTimeout(()=>{
+		ACTIONS.chatLogin();
+			
+		},3000);
 	}
 	
 	render(){
@@ -48,9 +58,10 @@ class wechat extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	
+	let {sessions,user} = state.chatIndex;
 	return {
-		
+		_sessions:sessions,
+		_user:user
 	};
 }; 
 

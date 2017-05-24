@@ -30,3 +30,24 @@
   -o-text-size-adjust: none;
   text-size-adjust: none;
 }
+.iScrollVerticalScrollbar.iScrollLoneScrollbar{
+    position: absolute;
+    z-index: 9999;
+    width: 5px;
+    bottom: 2px;
+    top: 2px;
+    right: 1px;
+    overflow: hidden;
+    pointer-events: none;
+    .iScrollIndicator{
+      box-sizing: border-box;
+      position: absolute;
+      background: rgba(66, 70, 77, 0.498039);
+      border: 1px solid rgba(118, 112, 112, 0.7);
+      border-radius: 5px;
+      width: 100%;
+      transition-duration: 0ms;
+      display: block;
+      height: 308px;
+    }
+}

@@ -20,6 +20,7 @@ class Scroll extends Component {
         bounce: false,
         preventDefault: false,
         disablePointer: false,
+        fadeScrollbars:true,
         scrollbars: this.props.scrollbar,
       });
 

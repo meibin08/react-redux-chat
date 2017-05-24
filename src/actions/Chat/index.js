@@ -4,15 +4,31 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-
-import {SEARCH_RESULT} from "src/constants/Chat";
+import {ajaxJson} from "src/utils/ajax";
+import {CHAT_LOGIN} from "src/constants/Chat";
 
 let chat =  {
-	searchResult:(data)=>{
-	
-		return {
-			type:SEARCH_RESULT,
-			data
+	chatLogin:(options)=>{
+
+		return (dispatch)=>{
+			ajaxJson({
+				type:"POST",
+				url:"/initSession?username=xiaoqiang&password=123",
+				success:(req)=>{
+					console.log(req)
+					if(req.res == 10000){
+						let {data}= req;
+						dispatch({
+							type:CHAT_LOGIN,
+							data
+						});
+					}else{
+						
+					};
+				},error:()=>{
+
+				}
+			});
 		};
 	}
 };
