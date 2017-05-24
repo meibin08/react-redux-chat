@@ -36,7 +36,7 @@ class List extends Component{
 		return ( 
 			<div className="list-wrap">
 				<div className="list">
-					<Scroll allowScroll={false} scrollbar="custom" onScroll={this.Iscrolls.bind(this)}>
+					<Scroll allowScroll={false} scrollbar="custom">
 					    <ul>
 					    	{
 					    	_sessions.map((item,i)=>{
