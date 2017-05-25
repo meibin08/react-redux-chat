@@ -73,7 +73,7 @@ if (process.env.NODE_ENV === 'development') {
 	config.devServer= {
 		port:8085,
 		historyApiFallback: true,
-		noInfo: true,
+		noInfo: false,
 		publicPath: config.output.publicPath,
 		stats: {
 			colors: true,
@@ -86,6 +86,7 @@ if (process.env.NODE_ENV === 'development') {
 	  },
 	  __DEBUG__: true
 	}));
+	config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }else{
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
 	  compress: {

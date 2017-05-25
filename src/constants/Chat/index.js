@@ -4,5 +4,7 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
+export const CHAT_INIT = "CHAT_INIT";
 export const CHAT_LOGIN = "CHAT_LOGIN";
+export const SET_SESSION = "SET_SESSION";
 

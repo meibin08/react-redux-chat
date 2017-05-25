@@ -32,12 +32,13 @@ class Sidebar extends Component{
 	}
 	
 	render(){
+		let {_user} = this.props;
 		return ( 
 			<section className="sidebar">
 				<div className="card">
 				    <header className="user">
-				        <img className="avatar" width="40" height="40"  src={require("./images/Bin.jpg")}/>
-				        <p className="name">测试</p>
+				        <img className="avatar" width="40" height="40"  src={(_user.img||require("./images/Bin.jpg"))}/>
+				        <p className="name">{_user.name}</p>
 				    </header>
 				    <footer>
 				        <input className="search" type="text" placeholder="search user..." />
@@ -50,8 +51,10 @@ class Sidebar extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	
-	return {};
+	let {user} = state.chatIndex;
+	return {
+		_user:user
+	};
 }; 
 
 let mapDispatchToProps=(dispatch)=>{

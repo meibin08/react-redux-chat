@@ -5,9 +5,15 @@
  */
 
 import {ajaxJson} from "src/utils/ajax";
-import {CHAT_LOGIN} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,CHAT_INIT} from "src/constants/Chat";
 
 let chat =  {
+	chat_init:(data)=>{
+		return {
+			type:CHAT_INIT,
+			data
+		}
+	},
 	chatLogin:(options)=>{
 
 		return (dispatch)=>{
@@ -30,6 +36,12 @@ let chat =  {
 				}
 			});
 		};
+	},
+	set_session:(data)=>{
+		return {
+			type:SET_SESSION,
+			data
+		}
 	}
 };
 export default chat;

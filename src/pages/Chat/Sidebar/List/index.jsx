@@ -32,7 +32,7 @@ class List extends Component{
 		// console.log(y)
 	}
 	render(){
-		let {_sessions,_currentId} = this.props;
+		let {_sessions,_currentId,_currentChat,ACTIONS} = this.props;
 		return ( 
 			<div className="list-wrap">
 				<div className="list">
@@ -41,11 +41,11 @@ class List extends Component{
 					    	{
 					    	_sessions.map((item,i)=>{
 					    		return (
-					    			<li key={"index"+i} className={classnames({"active":item.id === _currentId})}>
+					    			<li key={"index"+i} className={classnames({"active":(item.id === _currentId&&_currentId==_currentChat.id)})} onClick={()=>ACTIONS.set_session(item.id)}>
 							            <p className="avatar">
-							                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"/>
+							                <img   width="30" height="30"src={item.user.img||"https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"} />
 							            </p>
-							            <p className="name">测试</p>
+							            <p className="name">{item.user.name}</p>
 							            <i className={classnames("dot")} ></i>
 							        </li>
 					    		);
@@ -62,10 +62,11 @@ class List extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	let {sessions,user,currentUserId} = state.chatIndex;
+	let {sessions,user,currentChat,currentUserId} = state.chatIndex;
 	return {
 		_sessions:sessions,
 		_user:user,
+		_currentChat:currentChat,
 		_currentId:currentUserId
 	};
 }; 

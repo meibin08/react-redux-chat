@@ -20,8 +20,9 @@ Store.subscribe(() => {
 	let prevVal = currentVal;
 	currentVal = Store.getState();
 	if (prevVal !== currentVal) {
-		// console.log('Some deep nested property changed from', prevVal, 'to', currentVal)
 		console.log(currentVal,'state发生了变化')
+		localStorage.setItem("_store",JSON.stringify(currentVal));
+		// console.log('Some deep nested property changed from', prevVal, 'to', currentVal)
 	};
 })
 export default Store;

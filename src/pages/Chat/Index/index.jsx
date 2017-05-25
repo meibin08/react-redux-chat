@@ -11,15 +11,9 @@ import classnames from 'classnames';
 import actions from "src/actions";
 import Sidebar from "../Sidebar/Index";
 import Messages from "../Messages/Index";
-import Send from "../Messages/Send";
-
-
 // import dia from 'src/utils/dia';
 
 import './Index.scss';
-
-
-
 
 class wechat extends Component{
 	constructor(props){
@@ -33,25 +27,16 @@ class wechat extends Component{
 	componentDidMount(){
 		//dia(this);
 		let {ACTIONS} = this.props;
-		ACTIONS.chatLogin();
-		setTimeout(()=>{
-		ACTIONS.chatLogin();
+		ACTIONS.chat_init();
+		//ACTIONS.chatLogin();
 
-		},2000);
-		setTimeout(()=>{
-		ACTIONS.chatLogin();
-			
-		},3000);
 	}
 	
 	render(){
 		return ( 
 			<section className="wechat">
 				<Sidebar/>
-				<div className="main">
-					<Messages/>
-					<Send/>
-				</div>
+				<Messages/>
 			</section>
 		);
 	}
