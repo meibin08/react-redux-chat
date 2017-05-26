@@ -4,7 +4,7 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-import {CHAT_LOGIN,SET_SESSION,CHAT_INIT} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE} from "src/constants/Chat";
 
 let initStates = {
 	user:{
@@ -25,7 +25,26 @@ let initStates = {
 	                self: 0
 	            },
 	            {
-	                content:"想买什么保险呢？",
+	                content:"想买什==？",
+	                date: Date.now(),
+	                self: 1
+	            },
+	            {
+	                content:"此=统消息",
+	                date: Date.now(),
+	                self: 0
+	            },
+	            {
+	                content:"想=险呢？",
+	                date: Date.now(),
+	                self: 1
+	            },{
+	                content:"此号为系统消息",
+	                date: Date.now(),
+	                self: 0
+	            },
+	            {
+	                content:"想买什么保险呢？????",
 	                date: Date.now(),
 	                self: 1
 	            }
@@ -50,6 +69,24 @@ function chatIndex(state = initStates,action){
 				currentChat:(state.sessions.filter((item)=>item.id==action.data)[0]||{}),
 				currentUserId:action.data
 			});
+
+		case SEND_MESSAGE: //发送消息
+			console.log("SEND_MESSAGE",action.data);
+			let sessions = state.sessions.map((item)=>{
+				if(item.id==state.currentUserId){
+					item.messages.push({
+						content:action.data,
+		                date: Date.now(),
+		                self: 1
+					});
+				};
+				return item;
+			});
+			return Object.assign({},state,{
+				sessions:sessions,
+				currentChat:(sessions.filter((item)=>item.id==state.currentUserId)[0])
+			});
+
 		default:
 			return state;
 	};

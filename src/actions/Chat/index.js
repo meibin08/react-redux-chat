@@ -5,7 +5,7 @@
  */
 
 import {ajaxJson} from "src/utils/ajax";
-import {CHAT_LOGIN,SET_SESSION,CHAT_INIT} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE} from "src/constants/Chat";
 
 let chat =  {
 	chat_init:(data)=>{
@@ -40,6 +40,12 @@ let chat =  {
 	set_session:(data)=>{
 		return {
 			type:SET_SESSION,
+			data
+		}
+	},
+	send_message:(data)=>{
+		return {
+			type:SEND_MESSAGE,
 			data
 		}
 	}

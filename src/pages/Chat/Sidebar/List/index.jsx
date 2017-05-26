@@ -51,7 +51,76 @@ class List extends Component{
 					    		);
 					    	})
 					    	}
-					        
+					    	<li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试 夺</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试的萨芬</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试票面</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试票面</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
+					        <li>
+					            <p className="avatar">
+					                <img   width="30" height="30"src="https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg" />
+					            </p>
+					            <p className="name">测试的萨芬11</p>
+					            <i className={classnames("dot")} ></i>
+					        </li>
 					    </ul>
 					</Scroll>
 				</div>

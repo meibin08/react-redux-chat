@@ -32,6 +32,7 @@ class Messages extends Component{
 	
 	render(){
 		let {_user,_currentChat} = this.props;
+		console.log(_currentChat)
 		return ( 
 			
 			<section className="message-w">
@@ -39,7 +40,7 @@ class Messages extends Component{
 					<h3>{_currentChat.user.name}</h3>
 				</header>
 			    <div className="message" >
-			    	<Scroll  allowScroll={false} scrollbar="custom">
+			    	<Scroll allowScroll={false} scrollbar="custom">
 				        <ul >
 				            <li className="first" ><span className="history">查看更多历史消息</span></li>
 				            {
@@ -58,7 +59,7 @@ class Messages extends Component{
 			            	})
 					        }
 				        </ul>
-			        </Scroll>
+				    </Scroll>
 			    </div>
 			    <div className="dialog">
 			        <p className="mask"></p>
