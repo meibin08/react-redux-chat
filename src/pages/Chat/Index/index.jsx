@@ -29,7 +29,7 @@ class wechat extends Component{
 		//dia(this);
 		let {ACTIONS} = this.props;
 		ACTIONS.chat_init();
-		ACTIONS.chatLogin();
+		// ACTIONS.chatLogin();
 		
 
 	}

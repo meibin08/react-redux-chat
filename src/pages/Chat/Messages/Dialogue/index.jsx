@@ -33,11 +33,13 @@ class Messages extends Component{
 		console.log(y)
 	}
 	time(date,prevDate){
+		// console.log(date,prevDate)
 		let Interval  = 2*60*1000;//区间
-		let ret =date- prevDate;
+		let _date = new Date(date);
+		let _prevDate = new Date(prevDate);
+		let ret =_date.getTime() - _prevDate.getTime();
 		if(ret>=Interval){
-			let dates = new Date(date);
-			return dates.getFullYear()+"-"+(dates.getMonth()+1)+"-"+dates.getDate();
+			return _date.getFullYear()+"-"+(_date.getMonth()+1)+"-"+_date.getDate();
 		};
 		return "";
 	}

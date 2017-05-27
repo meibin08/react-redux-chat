@@ -59,7 +59,12 @@ function chatIndex(state = initStates,action){
 
 		case CHAT_INIT:
 			var _store = JSON.parse(localStorage.getItem("_store")||"{}");
-			return Object.assign({},state,(_store.chatIndex||{}));
+			let _currentChat={};
+			if(_store && _store.chatIndex){
+				let {sessions,currentUserId}=_store.chatIndex;
+				_currentChat = (sessions.filter((item)=>item.id==currentUserId)[0]||{});
+			};
+			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:_currentChat});
 		case CHAT_LOGIN:
 			console.log("SEARCH_RESULT = 17",action.data);
 			return Object.assign({},state,{...action.data});
