@@ -5,6 +5,7 @@
  */
 
 import {ajaxJson} from "src/utils/ajax";
+import {fetchJson} from "src/utils/fetch";
 import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE} from "src/constants/Chat";
 
 let chat =  {
@@ -17,9 +18,30 @@ let chat =  {
 	chatLogin:(options)=>{
 
 		return (dispatch)=>{
+			fetchJson({
+				type:"POST",
+				url:"/initSession",
+				data:{username:"xiaoqiang",password:123},
+				success:req=>{
+					console.log(req)
+					if(req.res == 10000){
+						dispatch({
+							type:CHAT_LOGIN,
+							data:req
+						});
+					}else{
+
+					};
+				},
+				error:err=>{
+					console.log(err);
+				}
+			});
+			return ;
 			ajaxJson({
 				type:"POST",
-				url:"/initSession?username=xiaoqiang&password=123",
+				url:"/initSession",
+				data:{username:"xiaoqiang",password:123},
 				success:(req)=>{
 					console.log(req)
 					if(req.res == 10000){

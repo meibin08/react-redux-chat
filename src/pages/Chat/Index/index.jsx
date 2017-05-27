@@ -11,6 +11,7 @@ import classnames from 'classnames';
 import actions from "src/actions";
 import Sidebar from "../Sidebar/Index";
 import Messages from "../Messages/Index";
+import {fetchJson} from "src/utils/fetch";
 // import dia from 'src/utils/dia';
 
 import './Index.scss';
@@ -28,7 +29,8 @@ class wechat extends Component{
 		//dia(this);
 		let {ACTIONS} = this.props;
 		ACTIONS.chat_init();
-		//ACTIONS.chatLogin();
+		ACTIONS.chatLogin();
+		
 
 	}
 	

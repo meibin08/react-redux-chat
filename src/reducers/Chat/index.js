@@ -62,7 +62,7 @@ function chatIndex(state = initStates,action){
 			return Object.assign({},state,(_store.chatIndex||{}));
 		case CHAT_LOGIN:
 			console.log("SEARCH_RESULT = 17",action.data);
-			return Object.assign({},state,action.data);
+			return Object.assign({},state,{...action.data});
 		case SET_SESSION:
 			// console.log("SET_SESSION",a);
 			return Object.assign({},state,{

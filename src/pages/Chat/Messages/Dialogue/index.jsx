@@ -43,7 +43,6 @@ class Messages extends Component{
 	}
 	render(){
 		let {_user,_currentChat} = this.props;
-		console.log(_currentChat)
 		return ( 
 			
 			<section className="message-w">
@@ -69,7 +68,7 @@ class Messages extends Component{
 			            				}
 						                
 						                <div className={classnames("main",{"self":item.self})}>
-						                    <img className="avatar" width="30" height="30"src={item.self ? require('./images/Bin.jpg'):_currentChat.user.img}/>
+						                    <img className="avatar" width="30" height="30"src={item.self ? _user.img:_currentChat.user.img}/>
 						                    <div className="text" >{item.content}</div>
 						                </div>
 						            </li>

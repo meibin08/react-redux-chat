@@ -14,14 +14,15 @@ export const fetchJson = (options) => {
   //     options.url += '.json'
   //   }
   // }
-
+options.url ="https://easy-mock.com/mock/59294d8e91470c0ac1fe8a4c/staff"+options.url;
   const { url, type, data, ...others } = options;
-
   let opts = {
     ...others,
     method: type || 'get',
-    credentials: 'include',
+    // credentials: 'include',// 日志上报的，需求注释这一行
     headers: {
+      'X-Avoscloud-Application-Id': 'toi4KhzlzSCXvIzkI9FHIEt5-gzGzoHsz',
+      'X-Avoscloud-Application-Key':'5NNtepVs7mF6R8U8TPjImffo',
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
