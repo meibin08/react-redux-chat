@@ -72,6 +72,7 @@ function chatIndex(state = initStates,action){
 
 		case SEND_MESSAGE: //发送消息
 			console.log("SEND_MESSAGE",action.data);
+			let currentChat={};
 			let sessions = state.sessions.map((item)=>{
 				if(item.id==state.currentUserId){
 					item.messages.push({
@@ -79,12 +80,14 @@ function chatIndex(state = initStates,action){
 		                date: Date.now(),
 		                self: 1
 					});
+					currentChat= item;
 				};
 				return item;
 			});
+			// (sessions.filter((item)=>item.id==state.currentUserId)[0])
 			return Object.assign({},state,{
 				sessions:sessions,
-				currentChat:(sessions.filter((item)=>item.id==state.currentUserId)[0])
+				currentChat:currentChat
 			});
 
 		default:

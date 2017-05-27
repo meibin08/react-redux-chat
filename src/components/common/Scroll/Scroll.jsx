@@ -36,11 +36,14 @@ class Scroll extends Component {
         Event.on(this.refs.scrollWrapper, 'touchmove', this.stopTouchmove); 
         Event.on(document, 'touchmove', this.stopTouchmove); 
       };
-      
+      this.toBottom();
     }, 250);
 
   }
-
+  toBottom(){
+    let {myScroll} = this.state;
+    myScroll.scrollTo(0,myScroll.maxScrollY, 5);
+  }
   manualTouchMove(allowScroll){     
       if(allowScroll){
 
@@ -53,6 +56,8 @@ class Scroll extends Component {
   componentDidUpdate() {
     setTimeout(() => {
         this.state.myScroll.refresh();
+        console.log(this.state.myScroll.maxScrollY)
+        this.toBottom();
     }, 350);
   }
 

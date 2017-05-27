@@ -29,7 +29,18 @@ class Messages extends Component{
 		//dia(this);
 
 	}
-	
+	_goTo(y){
+		console.log(y)
+	}
+	time(date,prevDate){
+		let Interval  = 2*60*1000;//区间
+		let ret =date- prevDate;
+		if(ret>=Interval){
+			let dates = new Date(date);
+			return dates.getFullYear()+"-"+(dates.getMonth()+1)+"-"+dates.getDate();
+		};
+		return "";
+	}
 	render(){
 		let {_user,_currentChat} = this.props;
 		console.log(_currentChat)
@@ -40,16 +51,23 @@ class Messages extends Component{
 					<h3>{_currentChat.user.name}</h3>
 				</header>
 			    <div className="message" >
-			    	<Scroll allowScroll={false} scrollbar="custom">
-				        <ul >
+			    	<Scroll allowScroll={false} scrollbar="custom" scrollTo={(y)=>this._goTo(y)}>
+				        <ul>
 				            <li className="first" ><span className="history">查看更多历史消息</span></li>
 				            {
 			            	_currentChat.messages.map((item,i)=>{
 			            		return (
 			            			<li key={i}>
-						                <p className="time">
-						                    <span>2017-05-22</span>
-						                </p>
+			            				{
+			            				i!=0&&this.time(item.date,_currentChat.messages[i-1].date)!=''?(
+			            					<p className="time">
+							                    <span>{this.time(item.date,_currentChat.messages[i-1].date)}</span>
+							                </p>
+			            				):(
+			            				null
+			            				)
+			            				}
+						                
 						                <div className={classnames("main",{"self":item.self})}>
 						                    <img className="avatar" width="30" height="30"src={item.self ? require('./images/Bin.jpg'):_currentChat.user.img}/>
 						                    <div className="text" >{item.content}</div>
