@@ -25,7 +25,7 @@
                 img{
                     width:58px;
                     height:58px;
-                    border-radius:3px;
+                    border-radius:5px;
                 }
                 width:60px;
                 height:60px;
@@ -72,7 +72,7 @@
         height:50px;
         line-height:50px;
         padding:0 20px;
-        background-color:#f6f5f5;
+        background-color:#f7fcff;
         border-bottom:1px solid #ddd;
         h3{
             font-size:15px;
@@ -116,7 +116,7 @@
         .avatar {
             float: left;
             margin: 0 10px 0 0;
-            border-radius: 3px;
+            border-radius: 100px;
         }
         .text {
             display: inline-block;
@@ -128,7 +128,7 @@
             font-size: 12px;
             text-align: left;
             word-break: break-all;
-            background-color: #fafafa;
+            background-color: #f7fcff;
             border-radius: 4px;
             a.link{
                 color:#1144e7;
@@ -139,7 +139,7 @@
                 top: 9px;
                 right: 100%;
                 border: 6px solid transparent;
-                border-right-color: #fafafa;
+                border-right-color: #f7fcff;
             }
         }
 

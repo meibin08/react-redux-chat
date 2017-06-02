@@ -69,7 +69,7 @@ class Messages extends Component{
 			            				}
 						                
 						                <div className={classnames("main",{"self":item.self})}>
-						                    <img className="avatar" width="30" height="30"src={item.self ? _user.img:_currentChat.user.img}/>
+						                    <img className="avatar" width="42" height="42"src={item.self ? _user.img:_currentChat.user.img}/>
 						                    <div className="text" >{item.content}</div>
 						                </div>
 						            </li>

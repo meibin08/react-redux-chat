@@ -20,7 +20,7 @@
         overflow:hidden;
         position:relative;
     li {
-        padding: 12px 15px;
+        padding: 13px 15px;
         border-bottom: 1px solid #292C33;
         cursor: pointer;
         transition: background-color .1s;
@@ -29,7 +29,7 @@
             background-color: rgba(255, 255, 255, 0.03);
         }
         &.active {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #242c34;
         }
         .dot{
             position:absolute;
@@ -49,8 +49,8 @@
     .avatar img, .name {
         vertical-align: middle;
     }
-    .avatar {
-        border-radius: 2px;
+    .avatar, .avatar img{
+        border-radius: 5px;
     }
     .name {
         display: inline-block;

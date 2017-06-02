@@ -43,7 +43,7 @@ class List extends Component{
 					    		return (
 					    			<li key={"index"+i} className={classnames({"active":(item.id === _currentId&&_currentId==_currentChat.id)})} onClick={()=>ACTIONS.set_session(item.id)}>
 							            <p className="avatar">
-							                <img   width="30" height="30"src={item.user.img||"https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"} />
+							                <img   width="40" height="40"src={item.user.img||"https://ps.ssl.qhimg.com/t01531c2d8bd3dbe644.jpg"} />
 							            </p>
 							            <p className="name">{item.user.name}</p>
 							            <i className={classnames("dot")} ></i>

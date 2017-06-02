@@ -1,15 +1,18 @@
 @import "src/style/index";
 
 body{
-  background: #f5f5f5 url(./images/bg.jpg) no-repeat 100%;
+  background: #f5f5f5 url(./images/bg.jpg) no-repeat center;
+  -webkit-background-size:100%;
+  background-size:100%;
 }
 .wechat{
     margin: 30px auto;
-    width: 800px;
-    height: 600px;
+    width: 900px;
+    height: 650px;
     overflow: hidden;
     border-radius: 3px;
-    box-shadow:0 0 6px #fff;
+    box-shadow:2px 2px 2px rgba(21, 22, 26, 0.33);
+    border:1px solid #cfcfcf;
     background-color:rgba(0,0,0,.8);
     .message-w {
         height: calc(100% - 160px);
