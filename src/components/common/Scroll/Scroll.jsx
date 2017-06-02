@@ -14,6 +14,9 @@ class Scroll extends Component {
 
   componentDidMount() {
     setTimeout( () => {
+      if(!this.refs.scrollWrapper){
+        return false;
+      }
       this.state.myScroll = new IScroll(this.refs.scrollWrapper, { 
         mouseWheel: true,
         probeType: 3,
@@ -41,6 +44,8 @@ class Scroll extends Component {
 
   }
   toBottom(){
+    let {isToBottom} = this.props;
+    if(!isToBottom){return;};
     let {myScroll} = this.state;
     myScroll.scrollTo(0,myScroll.maxScrollY, 5);
   }
@@ -56,7 +61,6 @@ class Scroll extends Component {
   componentDidUpdate() {
     setTimeout(() => {
         this.state.myScroll.refresh();
-        console.log(this.state.myScroll.maxScrollY)
         this.toBottom();
     }, 350);
   }

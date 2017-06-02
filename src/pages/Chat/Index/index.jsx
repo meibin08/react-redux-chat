@@ -11,11 +11,15 @@ import classnames from 'classnames';
 import actions from "src/actions";
 import Sidebar from "../Sidebar/Index";
 import Messages from "../Messages/Index";
+import Login from "../Login";
 import {fetchJson} from "src/utils/fetch";
-// import dia from 'src/utils/dia';
+import Storage from 'src/utils/storage';
 
 import './Index.scss';
 
+let _store = new Storage(),
+	Storage_Key = 'username';
+	
 class wechat extends Component{
 	constructor(props){
 		super(props);
@@ -25,7 +29,7 @@ class wechat extends Component{
     		
     	};
 	}
-	componentDidMount(){
+	componentWillMount(){
 		//dia(this);
 		let {ACTIONS} = this.props;
 		ACTIONS.chat_init();
@@ -35,11 +39,20 @@ class wechat extends Component{
 	}
 	
 	render(){
+		let {_sessions,_user}=this.props;
 		return ( 
-			<section className="wechat">
-				<Sidebar/>
-				<Messages/>
-			</section>
+			<div>
+				{_sessions.length&&Object.keys(_user).length?(
+				<section className="wechat">
+					<Sidebar/>
+					<Messages/>
+				</section>
+				):(
+				<Login />
+				)
+				}
+				
+			</div>
 		);
 	}
 };

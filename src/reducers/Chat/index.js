@@ -4,7 +4,11 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE,SET_DESTROY} from "src/constants/Chat";
+import Storage from 'src/utils/storage';
+let _stores = new Storage(),
+	Storage_Key = 'username';
+	
 
 let initStates = {
 	user:{
@@ -60,6 +64,10 @@ function chatIndex(state = initStates,action){
 		case CHAT_INIT:
 			var _store = JSON.parse(localStorage.getItem("_store")||"{}");
 			let _currentChat={};
+			if(!_stores.get(Storage_Key)){
+
+				return Object.assign({},state,{currentChat:1,user:{},sessions:[]});
+			};
 			if(_store && _store.chatIndex){
 				let {sessions,currentUserId}=_store.chatIndex;
 				_currentChat = (sessions.filter((item)=>item.id==currentUserId)[0]||{});
@@ -94,7 +102,16 @@ function chatIndex(state = initStates,action){
 				sessions:sessions,
 				currentChat:currentChat
 			});
-
+		//	送客
+		
+		case SET_DESTROY: 
+			let _sessions = state.sessions.filter((item)=>item.id !== state.currentUserId);
+			// (sessions.filter((item)=>item.id==state.currentUserId)[0])
+			return Object.assign({},state,{
+				sessions:_sessions,
+				currentChat:_sessions[0],
+				currentUserId:_sessions[0].id
+			});
 		default:
 			return state;
 	};

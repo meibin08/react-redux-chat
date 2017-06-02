@@ -22,12 +22,11 @@ class Messages extends Component{
 		super(props);
 
     	this.state = {
-    		
+    		z:1
     	};
 	}
 	componentDidMount(){
 		//dia(this);
-
 	}
 	_goTo(y){
 		console.log(y)
@@ -52,7 +51,7 @@ class Messages extends Component{
 					<h3>{_currentChat.user.name}</h3>
 				</header>
 			    <div className="message" >
-			    	<Scroll allowScroll={false} scrollbar="custom" scrollTo={(y)=>this._goTo(y)}>
+			    	<Scroll allowScroll={false} isToBottom={true} scrollbar="custom" scrollTo={(y)=>this._goTo(y)}>
 				        <ul>
 				            <li className="first" ><span className="history">查看更多历史消息</span></li>
 				            {

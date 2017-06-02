@@ -21,6 +21,7 @@ class Messages extends Component{
 	constructor(props){
 		super(props);
 		this.time = null;
+		this.flag = false;
     	this.state = {
     		content:"",
     		tips:false
@@ -53,7 +54,7 @@ class Messages extends Component{
 	}
 	validate(e){
 		let {content} = this.state;
-		if((e.keyCode === 13 && content.trim().length <= 0) ){
+		if(( content.trim().length <= 0) ){
             this.setState({content:content.trim()});
             e.target.value=content.trim();
             this.isTisp();
@@ -62,11 +63,33 @@ class Messages extends Component{
         return true;
 
 	}
-	sends(e){
-		let {ACTIONS} = this.props;
+	save(){
+		let {ACTIONS,_user,_currentId} = this.props;
+		let {content} = this.state;
+		if(this.flag){
+			return false;
+		};
+		this.flag = true;
+		ACTIONS.send_message({
+			user:_user,id:_currentId,content:content,
+			success:(req)=>{
+				this.flag = false;
+			},
+			error:()=>{
+				this.flag = false;
+			}
+		});
+		this.setState({
+			content:""
+		},()=>{
+			this.refs.textarea.value ="";
+		});
+	}
+	enter(e){
+		let {ACTIONS,_user,_currentId} = this.props;
 		let {name,value}= e.target;	
 		let {content} = this.state;
-		if(!this.validate(e)){
+		if(e.keyCode === 13 && !this.validate(e)){
 			return false;
 		}else if(e.ctrlKey && e.keyCode === 13){
 			value=value+"\n";
@@ -77,28 +100,37 @@ class Messages extends Component{
 			return false;
 		};
 		if( ( content.trim().length && e.keyCode === 13 )){
-
-            //this.sendMessage(filterStr(this.content.trim()));
-            ACTIONS.send_message(content);
-            e.target.value= "";
-			this.setState({
-				[`${name}`]:""
-			});
+			this.save();
     console.log("发送内容")
             return false;
         };
         this.setState({
 			[`${name}`]:value
 		});
-        return true;
+	}
+	sends(e){
+		if(!this.validate(e)){
+			return false;
+		}else{
+			this.save();
+		};
+	}
+	destroy(){
+		let {ACTIONS,_user,_currentId} = this.props;
+		if(_currentId == 1){
+			return;
+		};
+		ACTIONS.set_destroy({
+			user:_user,id:_currentId
+		});
 	}
 	render(){
-		let {tips}=this.state;
+		let {tips,content}=this.state;
 		return ( 
 			<div className="send">
-			    <textarea placeholder="按 Enter 发送, Ctrl + Enter 可换行" name="content" onKeyUp={(e)=>this.sends(e)}></textarea>
+			    <textarea placeholder="按 Enter 发送, Ctrl + Enter 可换行" ref="textarea" name="content" onKeyUp={(e)=>this.enter(e)}></textarea>
 			    <p className="hadler clearfix">
-			        <button className="fl" >送客</button>
+			        <button className="fl" onClick={()=>this.destroy()}>送客</button>
 			        <button className="fr" onClick={(e)=>this.sends(e,"enter")}>发送</button>
 			        <span className={classnames("tips",{"show":tips})} >不能发送空白信息或特殊字符</span>
 			    </p>
@@ -108,8 +140,12 @@ class Messages extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	const {mapIndex} = state;
-	return {};
+	let {sessions,user,currentUserId} = state.chatIndex;
+	return {
+		_sessions:sessions,
+		_user:user,
+		_currentId:currentUserId
+	};
 }; 
 
 let mapDispatchToProps=(dispatch)=>{

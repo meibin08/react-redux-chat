@@ -8,4 +8,5 @@ export const CHAT_INIT = "CHAT_INIT";
 export const CHAT_LOGIN = "CHAT_LOGIN";
 export const SET_SESSION = "SET_SESSION";
 export const SEND_MESSAGE = "SEND_MESSAGE";
+export const SET_DESTROY = "SET_DESTROY";
 
