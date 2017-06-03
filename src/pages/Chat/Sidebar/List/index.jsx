@@ -9,7 +9,8 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import classnames from 'classnames';
 import actions from "src/actions";
-import Scroll from 'src/components/common/Scroll'
+import Scroll from 'src/components/common/Scroll';
+import Svg from 'src/components/common/Svg';
 
 // import dia from 'src/utils/dia';
 
@@ -57,7 +58,20 @@ class List extends Component{
 					    </ul>
 					</Scroll>
 				</div>
-			    <p className="logout"><button onClick={()=>this.props.ACTIONS.set_logout()}>退出登录</button></p>
+			    <div className="logout">
+			    	<a className="ic" href="">
+			    		<Svg />
+			    		<p className="msg">如果该示例帮助了你，记得去github上帮我点颗星哦</p>
+			    	</a>
+			    	<a className="ic qq" href="">
+			    		<Svg hash="#svg-qq" />
+			    		<p className="msg">您在使用的过程中，有不懂的疑问或者bug可以加QQ群，向我咨询哦</p>
+			    	</a>
+			    	<span className="ic" title="退出">
+			    		<Svg hash="#svg-exit" />
+			    	</span>
+			    	<button style={{display:"none"}} onClick={()=>this.props.ACTIONS.set_logout()}>退出登录</button>
+			    </div>
 			</div>
 		);
 	}

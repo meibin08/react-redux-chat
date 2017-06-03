@@ -12,6 +12,52 @@
         line-height:23px;
         padding:0 10px;
     }
+    .ic{
+        display: inline-block;
+        width:30px;
+        height:30px;
+        position:relative;
+        &:hover{
+            .msg{display:block;}
+        }
+        .msg{
+            display:none;
+            position:absolute;
+            z-index:3;
+            padding:4px 7px;
+            background-color:#26292E;
+            top:-58px;
+            left:-50px;
+            width:180px;
+            line-height:20px;
+            border-radius:5px;
+            color:#fff;
+            font-size:12px;
+            box-shadow:1px 1px 0px rgba(255, 255, 255, 0.19);
+            &:after{
+                content: "";
+                position:absolute;
+                bottom:-16px;
+                left:56px;
+                width: 8px;
+                height: 8px;
+                border:8px solid transparent;
+                border-top-color:#26292E;
+
+            }
+
+        }
+        &.qq .msg{
+            width:200px;
+            left:-82px;
+            &:after{
+                left:89px;
+            }
+        }
+        &:not(:first-child){
+            margin-left:14px;
+        }
+    }
 }
 .list {
       overflow:hidden;

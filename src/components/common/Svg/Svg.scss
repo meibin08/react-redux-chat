@@ -1,0 +1,9 @@
+.svg-default{
+  width:30px;
+  height:30px;
+  background:#fff;
+  border-radius: 50%;
+  &:hover{
+    box-shadow:0 0 4px #fff;
+  }
+}
