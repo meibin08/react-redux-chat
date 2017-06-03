@@ -2,16 +2,8 @@
 
 export const ajaxJson = (options) => {
 
-  // if (process.env.DEPLOY_ENV || 'dev' == 'dev' && options.url.indexOf('/api/crius/person/resource') > -1) {
-  //   options.url = 'https://healthindex.wilddogio.com/' + options.url.replace(/\//g,"_");
-  //   if (options.url.indexOf('?') > -1) {
-  //     options.url = options.url.replace('?','.json?');
-  //   } else {
-  //     options.url += '.json'
-  //   }
-  // }
   // options.url ="https://easy-mock.com/mock/59294d8e91470c0ac1fe8a4c/staff"+options.url;
-  options.url ="http://dev.szfb.zhongan.com/staff"+options.url;
+  options.url ="http://dev.szfb.hongan.com/staff"+options.url;
   const { url, type, data, ...others } = options;
 
   let opts = {

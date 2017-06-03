@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebPackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
@@ -89,6 +89,15 @@ if (process.env.NODE_ENV === 'development') {
 	}));
 	config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }else{
+  	config.module.loaders.push({
+		test: /\.(js|jsx)$/,
+		exclude: /node_modules/,
+		loader: 'babel',
+		query: {
+		presets: ['react', 'es2015', 'stage-0'],
+		plugins: ['add-module-exports',"transform-runtime"]
+		}
+	});
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
 	  compress: {
 		warnings: false
@@ -102,12 +111,5 @@ if (process.env.NODE_ENV === 'development') {
 	  template: "index.html",
 	  inject: false
   }));
-  //复制文件
-  config.plugins.push(new CopyWebpackPlugin([
-	{
-	 from : path.resolve(__dirname, 'src/json'),//定义要拷贝的源目录   __dirname + ‘/src/public’
-	 to : path.resolve(__dirname, 'assets/json'),//定义要拷贝的目标目录  __dirname + ‘/dist’
-	}
-  ]));
 }
 module.exports = config;

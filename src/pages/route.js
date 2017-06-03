@@ -8,7 +8,7 @@ import Chat from 'src/pages/Chat/Index';
 ReactDOM.render(
   <Provider store={Store}>
     <App>
-  	<Chat></Chat>
+  	<Chat />
     </App>
   </Provider>,
   document.getElementById('app')
