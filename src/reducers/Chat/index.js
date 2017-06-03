@@ -24,31 +24,35 @@ let initStates = {
 	        },
 	        messages:[
 	            {
-	                content:"此号为系统消息",
+	                content:"该示例主要使用了react、redux、iscroll、fetch等组件实现模仿实现PC微信聊天，",
+	                date: Date.now(),
+	                self: 0
+	            },{
+	                content:"希望能对喜欢react,对于redux还处理迷茫，不知如何入手的小伙伴能起到入门指引",
 	                date: Date.now(),
 	                self: 0
 	            },
 	            {
-	                content:"想买什==？",
-	                date: Date.now(),
-	                self: 1
-	            },
-	            {
-	                content:"此=统消息",
+	                content:"如有不足之处，欢迎拍砖指出",
 	                date: Date.now(),
 	                self: 0
 	            },
 	            {
-	                content:"想=险呢？",
+	                content:"如果该项目帮助了您，请记得帮我点颗星，就是对我最大的支持",
+	                date: Date.now(),
+	                self: 0
+	            },
+	            {
+	                content:"项目地址：https://github.com/meibin08/react-redux-chat",
 	                date: Date.now(),
 	                self: 1
 	            },{
-	                content:"此号为系统消息",
+	                content:"当然如果您在使用的过程中，有不懂的地方，或更好的建议，我们也可以一起来讨论，欢迎加入React\redux技术交流群一起讨论",
 	                date: Date.now(),
 	                self: 0
 	            },
 	            {
-	                content:"想买什么保险呢？????",
+	                content:"QQ技术交流群：570395113",
 	                date: Date.now(),
 	                self: 1
 	            }
@@ -66,8 +70,7 @@ function chatIndex(state = initStates,action){
 			var _store = JSON.parse(localStorage.getItem("_store")||"{}");
 			let _currentChat={};
 			if(!_stores.get(Storage_Key)){
-
-				return Object.assign({},state,{currentChat:1,user:{},sessions:[],filterKey:""});
+				return Object.assign({},state,{...initStates,currentChat:initStates.sessions[0]});
 			};
 			if(_store && _store.chatIndex){
 				let {sessions,currentUserId}=_store.chatIndex;
@@ -75,8 +78,9 @@ function chatIndex(state = initStates,action){
 			};
 			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:_currentChat,filterKey:""});
 		case CHAT_LOGIN:
-			console.log("SEARCH_RESULT = 17",action.data);
-			return Object.assign({},state,{...action.data});
+			// console.log("SEARCH_RESULT = 17",initStates);
+			action.data.sessions.unshift(initStates.sessions[0]);
+			return Object.assign({},state,{...action.data,currentChat:initStates.sessions[0]});
 
 		//搜索
 		case FILTER_SEARCH:
@@ -84,7 +88,6 @@ function chatIndex(state = initStates,action){
 			return Object.assign({},state,{
 				filterKey:action.data
 			});
-
 
 		case SET_SESSION:
 			// console.log("SET_SESSION",a);
@@ -94,7 +97,7 @@ function chatIndex(state = initStates,action){
 			});
 
 		case SEND_MESSAGE: //发送消息
-			console.log("SEND_MESSAGE",action.data);
+			// console.log("SEND_MESSAGE",action.data);
 			let currentChat={};
 			let sessions = state.sessions.map((item)=>{
 				if(item.id==state.currentUserId){

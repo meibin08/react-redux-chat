@@ -59,7 +59,7 @@ class List extends Component{
 					</Scroll>
 				</div>
 			    <div className="logout">
-			    	<a className="ic" href="">
+			    	<a className="ic" target="_bank" href="https://github.com/meibin08/react-redux-chat/tree/gh-pages">
 			    		<Svg />
 			    		<p className="msg">如果该示例帮助了你，记得去github上帮我点颗星哦</p>
 			    	</a>
@@ -67,10 +67,10 @@ class List extends Component{
 			    		<Svg hash="#svg-qq" />
 			    		<p className="msg">您在使用的过程中，有不懂的疑问或者bug可以加QQ群，向我咨询哦</p>
 			    	</a>
-			    	<span className="ic" title="退出">
+			    	<span className="ic" title="退出" onClick={()=>this.props.ACTIONS.set_logout()}>
 			    		<Svg hash="#svg-exit" />
 			    	</span>
-			    	<button style={{display:"none"}} onClick={()=>this.props.ACTIONS.set_logout()}>退出登录</button>
+			    	<button style={{display:"none"}}>退出登录</button>
 			    </div>
 			</div>
 		);

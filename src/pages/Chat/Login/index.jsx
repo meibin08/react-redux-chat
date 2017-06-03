@@ -82,7 +82,7 @@ class Login extends Component{
 		let {error} = this.state;
 		return ( 
 			<div className="login-form">
-			    <h1>车险客服</h1>
+			    <h1>微信客服</h1>
 			    <p className="row account"><input className="lg-inp" maxLength="11" onChange={(e)=>this.set(e)} name="name"  type="text" placeholder="账号"/></p>
 			    <p className="row pwd"><input className="lg-inp" type="password" onChange={(e)=>this.set(e)} onKeyUp={(e)=>this.keyUp(e)} name="password"  placeholder="密码" /></p>
 			    <p className="row-error" id="error" style={{color:"red"}}>{error}</p>
