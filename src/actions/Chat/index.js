@@ -6,7 +6,7 @@
 
 import {ajaxJson} from "src/utils/ajax";
 import {fetchJson} from "src/utils/fetch";
-import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE,SET_DESTROY} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
 
 let chat =  {
 	chat_init:(data)=>{
@@ -19,7 +19,7 @@ let chat =  {
 
 		return (dispatch)=>{
 			const {data,success,error}=options;
-			ajaxJson({
+			/*ajaxJson({
 				type:"POST",
 				url:"/initSession",
 				data:data,
@@ -39,11 +39,11 @@ let chat =  {
 					error&&error();
 				}
 			});
-			return ;
+			return ;*/
 			fetchJson({
 				type:"POST",
 				url:"/initSession",
-				data:{username:"xiaoqiang",password:123},
+				data:data,
 				success:req=>{
 					console.log(req)
 					if(req.res == 10000){
@@ -54,13 +54,21 @@ let chat =  {
 					}else{
 
 					};
+					success&&success(req);
 				},
 				error:err=>{
 					console.log(err);
+					error&&error();
 				}
 			});
 			
 		};
+	},
+	filter_search:(data)=>{
+		return {
+			type:FILTER_SEARCH,
+			data
+		}
 	},
 	set_session:(data)=>{
 		return {
@@ -71,20 +79,26 @@ let chat =  {
 	send_message:(options)=>{
 		return (dispatch)=>{
 			const {user,id,content,success,error}=options;
-			ajaxJson({
+			fetchJson({
 				type:"POST",
 				url:"/pushMessage?sid=" + user.sid,
-				data:JSON.stringify({
+				data:{
 					'sid': user.sid,
                     'id': id,
                     'content':content
-				}),
+				},
 				success:(req)=>{
 					if(req.res == 10000){
 						let {data}= req;
+						
+						data.unshift({
+							content:content,
+			                date: Date.now(),
+			                self: 1
+						});
 						dispatch({
 							type:SEND_MESSAGE,
-							data: content
+							data
 						});
 					}else{
 						console.log(req.errorMsg)
@@ -103,7 +117,7 @@ let chat =  {
 			const {user,id,success,error}=options;
 			ajaxJson({
 				type:"GET",
-				url:"destroySession?sid="+user.sid+'&openid='+id,
+				url:"/destroySession?sid="+user.sid+'&openid='+id,
 				success:(req)=>{
 					if(req.res == 10000){
 						let {data}= req;
@@ -120,6 +134,12 @@ let chat =  {
 				}
 			});
 		};
+	},
+	set_logout:(data)=>{
+		return {
+			type:SET_LOGOUT,
+			data
+		}
 	}
 };
 export default chat;

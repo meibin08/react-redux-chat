@@ -88,6 +88,7 @@
         &.hidden{overflow-y:hidden}
         li {
             margin-bottom: 15px;
+            overflow: hidden;
             &.first{
                 text-align:center;
                 .history{
@@ -121,15 +122,16 @@
         .text {
             display: inline-block;
             position: relative;
-            padding: 0 10px;
+            padding: 4.5px 10px;
             max-width: calc(100% - 40px);
             min-height: 30px;
-            line-height: 2.5;
+            line-height:21px;
             font-size: 12px;
             text-align: left;
             word-break: break-all;
             background-color: #f7fcff;
             border-radius: 4px;
+            margin: 3px 0 0;
             a.link{
                 color:#1144e7;
             }

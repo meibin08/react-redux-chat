@@ -27,7 +27,7 @@ class Login extends Component{
     	this.state = {
     		name: '',
             password: '',
-            error:""
+            error:"请随意输入，账号、密码 格式均为英文+数字"
     	};
 	}
 	componentDidMount(){

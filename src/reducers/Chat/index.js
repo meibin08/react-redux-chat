@@ -4,7 +4,7 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-import {CHAT_LOGIN,SET_SESSION,CHAT_INIT,SEND_MESSAGE,SET_DESTROY} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
 import Storage from 'src/utils/storage';
 let _stores = new Storage(),
 	Storage_Key = 'username';
@@ -57,6 +57,7 @@ let initStates = {
     ],
 	currentChat:{},
 	currentUserId:1,
+	filterKey:""
 };
 function chatIndex(state = initStates,action){
 	switch(action.type){
@@ -66,16 +67,25 @@ function chatIndex(state = initStates,action){
 			let _currentChat={};
 			if(!_stores.get(Storage_Key)){
 
-				return Object.assign({},state,{currentChat:1,user:{},sessions:[]});
+				return Object.assign({},state,{currentChat:1,user:{},sessions:[],filterKey:""});
 			};
 			if(_store && _store.chatIndex){
 				let {sessions,currentUserId}=_store.chatIndex;
 				_currentChat = (sessions.filter((item)=>item.id==currentUserId)[0]||{});
 			};
-			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:_currentChat});
+			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:_currentChat,filterKey:""});
 		case CHAT_LOGIN:
 			console.log("SEARCH_RESULT = 17",action.data);
 			return Object.assign({},state,{...action.data});
+
+		//搜索
+		case FILTER_SEARCH:
+			
+			return Object.assign({},state,{
+				filterKey:action.data
+			});
+
+
 		case SET_SESSION:
 			// console.log("SET_SESSION",a);
 			return Object.assign({},state,{
@@ -88,11 +98,7 @@ function chatIndex(state = initStates,action){
 			let currentChat={};
 			let sessions = state.sessions.map((item)=>{
 				if(item.id==state.currentUserId){
-					item.messages.push({
-						content:action.data,
-		                date: Date.now(),
-		                self: 1
-					});
+					item.messages=item.messages.concat(action.data);
 					currentChat= item;
 				};
 				return item;
@@ -112,6 +118,10 @@ function chatIndex(state = initStates,action){
 				currentChat:_sessions[0],
 				currentUserId:_sessions[0].id
 			});
+		//退出
+		case SET_LOGOUT:
+			localStorage.clear();
+			return Object.assign({},state,{currentChat:1,user:{},sessions:[],filterKey:""});
 		default:
 			return state;
 	};

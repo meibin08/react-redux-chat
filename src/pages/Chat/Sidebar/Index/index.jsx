@@ -30,7 +30,11 @@ class Sidebar extends Component{
 		//dia(this);
 
 	}
-	
+	search(e){
+		let {value}=e.target;
+		let {ACTIONS} = this.props;
+		ACTIONS.filter_search(value);
+	}
 	render(){
 		let {_user} = this.props;
 		return ( 
@@ -41,7 +45,7 @@ class Sidebar extends Component{
 				        <p className="name">{_user.name}</p>
 				    </header>
 				    <footer>
-				        <input className="search" type="text" placeholder="search user..." />
+				        <input className="search" type="text" onChange={(e)=>this.search(e)} placeholder="search user..." />
 				    </footer>
 				</div>
 				<List/>
@@ -51,9 +55,10 @@ class Sidebar extends Component{
 };
 
 let mapStateToProps=(state)=>{
-	let {user} = state.chatIndex;
+	let {user,filterKey} = state.chatIndex;
 	return {
-		_user:user
+		_user:user,
+		_filterKey:filterKey
 	};
 }; 
 

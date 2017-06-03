@@ -42,6 +42,10 @@ class Messages extends Component{
 		};
 		return "";
 	}
+	link (str){
+		var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/ig
+		return str.replace(reg,'<a className="link" target="_bank" href="$1$2">$1$2</a>')
+	}
 	render(){
 		let {_user,_currentChat} = this.props;
 		return ( 
@@ -69,8 +73,8 @@ class Messages extends Component{
 			            				}
 						                
 						                <div className={classnames("main",{"self":item.self})}>
-						                    <img className="avatar" width="42" height="42"src={item.self ? _user.img:_currentChat.user.img}/>
-						                    <div className="text" >{item.content}</div>
+						                    <img className="avatar" width="35" height="35"src={item.self ? _user.img:_currentChat.user.img}/>
+						                    <div className="text" dangerouslySetInnerHTML={{ __html: this.link(item.content) }} />
 						                </div>
 						            </li>
 			            		);

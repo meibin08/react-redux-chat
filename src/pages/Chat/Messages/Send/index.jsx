@@ -130,7 +130,7 @@ class Messages extends Component{
 			<div className="send">
 			    <textarea placeholder="按 Enter 发送, Ctrl + Enter 可换行" ref="textarea" name="content" onKeyUp={(e)=>this.enter(e)}></textarea>
 			    <p className="hadler clearfix">
-			        <button className="fl" onClick={()=>this.destroy()}>送客</button>
+			        <button className="fl hide" onClick={()=>this.destroy()}>送客</button>
 			        <button className="fr" onClick={(e)=>this.sends(e,"enter")}>发送</button>
 			        <span className={classnames("tips",{"show":tips})} >不能发送空白信息或特殊字符</span>
 			    </p>
