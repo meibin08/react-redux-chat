@@ -98,6 +98,12 @@ if (process.env.NODE_ENV === 'development') {
 		plugins: ['add-module-exports',"transform-runtime"]
 		}
 	});
+	config.plugins.push(new webpack.DefinePlugin({
+	  "process.env": {
+	    NODE_ENV: JSON.stringify("production")
+	  },
+	  __DEBUG__: false
+	}));
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
 	  compress: {
 		warnings: false
