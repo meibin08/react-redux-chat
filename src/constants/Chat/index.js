@@ -9,6 +9,7 @@ export const CHAT_LOGIN = "CHAT_LOGIN";
 export const FILTER_SEARCH = "FILTER_SEARCH";
 export const SET_SESSION = "SET_SESSION";
 export const SEND_MESSAGE = "SEND_MESSAGE";
+export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const SET_DESTROY = "SET_DESTROY";
 export const SET_LOGOUT = "SET_LOGOUT";
 

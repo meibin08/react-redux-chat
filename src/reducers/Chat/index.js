@@ -4,7 +4,7 @@
  * @description：react-redux-chat  -> 仿微信聊天工具
  */
 
-import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
+import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,RECEIVE_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
 import Storage from 'src/utils/storage';
 let _stores = new Storage(),
 	Storage_Key = 'username';
@@ -61,26 +61,36 @@ let initStates = {
     ],
 	currentChat:{},
 	currentUserId:1,
+	id_list:[],
 	filterKey:""
 };
+let currentChat={};
+let sessions= [];
 function chatIndex(state = initStates,action){
 	switch(action.type){
 
-		case CHAT_INIT:
-			var _store = JSON.parse(localStorage.getItem("_store")||"{}");
-			let _currentChat={};
-			if(!_stores.get(Storage_Key)){
-				return Object.assign({},state,{...initStates,currentChat:initStates.sessions[0]});
-			};
-			if(_store && _store.chatIndex){
-				let {sessions,currentUserId}=_store.chatIndex;
-				_currentChat = (sessions.filter((item)=>item.id==currentUserId)[0]||{});
-			};
-			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:_currentChat,filterKey:""});
 		case CHAT_LOGIN:
+			let id_list = action.data.sessions.map((item)=>{
+				return item.id;
+			});
 			// console.log("SEARCH_RESULT = 17",initStates);
 			action.data.sessions.unshift(initStates.sessions[0]);
-			return Object.assign({},state,{...action.data,currentChat:initStates.sessions[0]});
+			return Object.assign({},state,{...action.data,id_list,currentUserId:1,currentChat:initStates.sessions[0]});
+
+		case CHAT_INIT:
+			var _store = JSON.parse(localStorage.getItem("_store")||"{}");
+			if(!_stores.get(Storage_Key)){
+				// console.log(111)
+				localStorage.clear();
+				return Object.assign({},state,{...initStates,sessions:[]});
+			};
+			if(_store && _store.chatIndex){
+				let {sessions,currentUserId,user,id_list}=_store.chatIndex;
+				// console.log(89,sessions);
+				currentChat = (sessions.filter((item)=>item.id==currentUserId)[0]||{});
+				// return Object.assign({},state,{sessions,currentUserId,user,id_list,currentChat:currentChat,filterKey:""});
+			};
+			return Object.assign({},state,(_store.chatIndex||{}),{currentChat:currentChat,filterKey:""});
 
 		//搜索
 		case FILTER_SEARCH:
@@ -90,16 +100,24 @@ function chatIndex(state = initStates,action){
 			});
 
 		case SET_SESSION:
-			// console.log("SET_SESSION",a);
+			
+			sessions = state.sessions.map((item)=>{
+				if(item.id==action.data){
+					item.status=false;
+					currentChat= item;
+				};
+				return item;
+			});
 			return Object.assign({},state,{
-				currentChat:(state.sessions.filter((item)=>item.id==action.data)[0]||{}),
+				sessions,
+				currentChat,
 				currentUserId:action.data
 			});
 
 		case SEND_MESSAGE: //发送消息
 			// console.log("SEND_MESSAGE",action.data);
-			let currentChat={};
-			let sessions = state.sessions.map((item)=>{
+			
+			sessions = state.sessions.map((item)=>{
 				if(item.id==state.currentUserId){
 					item.messages=item.messages.concat(action.data);
 					currentChat= item;
@@ -111,8 +129,34 @@ function chatIndex(state = initStates,action){
 				sessions:sessions,
 				currentChat:currentChat
 			});
+		//接收消息  
+		case RECEIVE_MESSAGE: 
+			// console.log("SEND_MESSAGE",action.data);
+			if(action.data.length <= 0){
+				return state;
+			};
+			for(let key in action.data){
+				console.log(action.data[key])
+				let {id} = action.data[key];
+				sessions = state.sessions.map((item)=>{
+
+					if(item.id == id && item.id != state.currentUserId){
+						item.status = true;
+						item.messages=item.messages.concat(action.data[key].messages);
+						
+					};
+					if(item.id==state.currentUserId){
+						currentChat= item;
+					};
+					return item;
+				});
+			};
+			// (sessions.filter((item)=>item.id==state.currentUserId)[0])
+			return Object.assign({},state,{
+				sessions:sessions,
+				currentChat:currentChat
+			});
 		//	送客
-		
 		case SET_DESTROY: 
 			let _sessions = state.sessions.filter((item)=>item.id !== state.currentUserId);
 			// (sessions.filter((item)=>item.id==state.currentUserId)[0])

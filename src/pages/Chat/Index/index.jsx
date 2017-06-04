@@ -29,11 +29,10 @@ class wechat extends Component{
     		
     	};
 	}
-	componentWillMount(){
+	componentDidMount(){
 		//dia(this);
 		let {ACTIONS} = this.props;
-		ACTIONS.chat_init();
-		// ACTIONS.chatLogin();
+			ACTIONS.chat_init();
 		
 
 	}
@@ -42,7 +41,7 @@ class wechat extends Component{
 		let {_sessions,_user}=this.props;
 		return ( 
 			<div>
-				{_sessions.length&&Object.keys(_user).length?(
+				{_sessions.length>0&&Object.keys(_user).length>0?(
 				<section className="wechat">
 					<Sidebar/>
 					<Messages/>

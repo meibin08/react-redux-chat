@@ -12,13 +12,11 @@ import actions from "src/actions";
 import Sidebar from "../Sidebar/Index";
 import Messages from "../Messages/Index";
 import {fetchJson} from "src/utils/fetch";
-import Storage from 'src/utils/storage';
+
 
 import './Index.scss';
 
-let _store = new Storage(),
-	Storage_Key = 'username';
-	
+
 
 class Login extends Component{
 	constructor(props){
@@ -29,9 +27,6 @@ class Login extends Component{
             password: '',
             error:"请随意输入，账号、密码 格式均为英文+数字"
     	};
-	}
-	componentDidMount(){
-		localStorage.clear();
 	}
 	set(e){
 		let {name,value}=e.target;
@@ -62,9 +57,6 @@ class Login extends Component{
         	ACTIONS.chatLogin({
         		data:{username:name,password:password},
         		success:(req)=>{
-        			if(req.res == 10000){
-        				_store.set(Storage_Key,name,120);
-        			};
         			this.flag = false;
         		},error:()=>{
         			this.flag = false;

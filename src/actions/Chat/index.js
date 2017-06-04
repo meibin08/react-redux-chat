@@ -6,7 +6,13 @@
 
 import {ajaxJson} from "src/utils/ajax";
 import {fetchJson} from "src/utils/fetch";
-import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
+import Storage from 'src/utils/storage';
+import {CHAT_LOGIN,SET_SESSION,FILTER_SEARCH,CHAT_INIT,SEND_MESSAGE,RECEIVE_MESSAGE,SET_DESTROY,SET_LOGOUT} from "src/constants/Chat";
+
+
+let _store = new Storage(),
+	Storage_Key = 'username';
+
 
 let chat =  {
 	chat_init:(data)=>{
@@ -47,6 +53,7 @@ let chat =  {
 				success:req=>{
 					console.log(req)
 					if(req.res == 10000){
+						_store.set(Storage_Key,data.username,120);
 						dispatch({
 							type:CHAT_LOGIN,
 							data:req
@@ -98,6 +105,33 @@ let chat =  {
 						});
 						dispatch({
 							type:SEND_MESSAGE,
+							data
+						});
+					}else{
+						console.log(req.errorMsg)
+					};
+					success&&success(req);
+				},error:()=>{
+					error&&error();
+				}
+			});
+		};
+	},
+	//接收消息
+	receive_message:(options)=>{
+		return (dispatch)=>{
+			const {user,id_list,success,error}=options;
+			fetchJson({
+				type:"POST",
+				url:"/getMessage?sid=" + user.sid,
+				data:{
+					'id_list':id_list,
+				},
+				success:(req)=>{
+					if(req.res == 10000){
+						let {data}= req;
+						dispatch({
+							type:RECEIVE_MESSAGE,
 							data
 						});
 					}else{
