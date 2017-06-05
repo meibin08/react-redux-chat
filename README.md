@@ -25,4 +25,8 @@
 - npm run build
 
 
+## 图片预览
+![项目首页](https://meibin08.github.io/react-redux-chat/images/index.png)
+![项目登录页](https://meibin08.github.io/react-redux-chat/images/login.png)
+
 
