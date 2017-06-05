@@ -14,8 +14,8 @@
 ****
 
 ## 图片预览
-![alt text](https://meibin08.github.io/react-redux-chat/index.png)
-![alt text](https://meibin08.github.io/react-redux-chat/login.png)
+![alt text](https://meibin08.github.io/react-redux-chat/images/index.png)
+![alt text](https://meibin08.github.io/react-redux-chat/images/login.png)
 
 
 
