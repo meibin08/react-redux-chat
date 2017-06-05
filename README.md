@@ -13,4 +13,9 @@
 	- 当然如果您在使用的过程中，有不懂的地方，或更好的建议，我们也可以一起来讨论，欢迎加入React\redux技术交流群一起讨论
 ****
 
+## 图片预览
+![alt text](https://meibin08.github.io/react-redux-chat/index.png)
+![alt text](https://meibin08.github.io/react-redux-chat/login.png)
+
+
 
