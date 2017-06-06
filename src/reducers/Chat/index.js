@@ -52,7 +52,7 @@ let initStates = {
 	                self: 0
 	            },
 	            {
-	                content:"QQ技术交流群：570395113",
+	                content:"QQ技术交流群：386485473",
 	                date: Date.now(),
 	                self: 1
 	            }

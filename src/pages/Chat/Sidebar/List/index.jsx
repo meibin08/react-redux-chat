@@ -107,7 +107,6 @@ class List extends Component{
 			    		<Svg />
 			    		<p className="msg">如果该示例帮助了你，记得去github上帮我点颗星哦</p>
 			    	</a>
-			    	<a></a>
 			    	<a className="ic qq"  target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d44baf17512787eb0e4f268849a3239d6b9675145a606e21b9a055176bd1c0e2">
 			    		<Svg hash="#svg-qq" />
 			    		<p className="msg">您在使用的过程中，有不懂的疑问或者bug可以加QQ群，一起交流哦</p>
