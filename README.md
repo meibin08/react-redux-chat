@@ -11,7 +11,7 @@
 	- 如有不足之处，欢迎拍砖指出，
 	- 如果该项目帮助了您，请记得帮我点颗星，就是对我最大的支持，
 	- 当然如果您在使用的过程中，有不懂的地方，或更好的建议，我们也可以一起来讨论，欢迎加入QQ群一起讨论
-	- React\redux技术交流群：[386485473](//shang.qq.com/wpa/qunwpa?idkey=d44baf17512787eb0e4f268849a3239d6b9675145a606e21b9a055176bd1c0e2 "React\redux技术交流群")
+	- React\redux技术交流群：[386485473](https://shang.qq.com/wpa/qunwpa?idkey=d44baf17512787eb0e4f268849a3239d6b9675145a606e21b9a055176bd1c0e2 "React\redux技术交流群")
 ****
 
 
