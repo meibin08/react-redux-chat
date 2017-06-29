@@ -2,8 +2,8 @@
 
 export const ajaxJson = (options) => {
 
-  // options.url ="https://easy-mock.com/mock/59294d8e91470c0ac1fe8a4c/staff"+options.url;
-  options.url ="http://dev.szfb.hongan.com/staff"+options.url;
+  options.url ="https://easy-mock.com/mock/59294d8e91470c0ac1fe8a4c/staff"+options.url;
+
   const { url, type, data, ...others } = options;
 
   let opts = {
