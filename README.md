@@ -1,6 +1,6 @@
 # react+redux-chat 模仿实现PC微信聊天
 
-### 在线示例地址 [demo](https://meibin08.github.io/react-redux-chat/index.html "在线示例")
+### 在线示例地址 [demo](https://meibin08.github.io/react-redux-chat/index.html "react+redux-chat 模仿实现PC微信聊天,react redux 入门示例, NodeJS 版,微信,聊天,mac chat")
 
 
 	该示例主要使用了react、redux、iscroll、fetch等组件实现模仿实现PC微信聊天，
@@ -28,7 +28,13 @@
 
 
 ## 图片预览
-![项目首页](https://meibin08.github.io/react-redux-chat/images/index.png)
-![项目登录页](https://meibin08.github.io/react-redux-chat/images/login.png)
+![模仿实现PC微信聊天,PC Windows 微信 聊天 移动聊天 免费 发信息 发图片 语音 weixin 离线消息 微博 私信 流量,微信,聊天,客服 系统,前端,React.js小书,教程,react,reactjs,node.js,JavaScript 库,webpack,ES6,express js,scss,sass,构建用户界面,组件化,入门教程,网易云音乐,网易云音乐 api,技术交流](https://meibin08.github.io/react-redux-chat/images/index.png)
+![react+redux-chat 模仿实现PC微信聊天,react redux 入门示例, NodeJS 版](https://meibin08.github.io/react-redux-chat/images/login.png)
+
+## 还可以打赏哦～ 
+
+- 如果觉得此示例对你有帮助，可以打赏我一点小费哦～ ^_^ ～
+- 
+![苏南, 前端,热爱前端开发,5年前端开发工作经验,meibin08@163.com,react爱好者，业余时间爱写一些自己感兴趣的东西，实践自己所想,爱好:跑步、音乐、爬山、看书、羽毛球等,'宝剑锋从磨砺出，梅花得自苦寒来'](https://meibin08.github.io/NeteaseCloudMusic-SSR/static/reward@x1.png?20180803)
 
 
