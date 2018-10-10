@@ -72,7 +72,7 @@ if (process.env.NODE_ENV === 'development') {
 	// webpack-dev-server配置
 	config.devServer= {
 		port:8085,
-		// host:"dev.zhongan.com",
+		// host:"dev.honeybadger8.com",
 		historyApiFallback: true,
 		noInfo: false,
 		publicPath: config.output.publicPath,
