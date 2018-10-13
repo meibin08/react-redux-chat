@@ -1,7 +1,7 @@
 {
   "name": "react-redux-chat",
   "version": "1.0.0",
-  "description": "",
+  "description": "模仿实现PC微信聊天 @IT·平头哥联盟-首席填坑官∙苏南",
   "main": "app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline",
@@ -26,6 +26,7 @@
     "edit",
     "flux",
     "redux",
+    "@IT·平头哥联盟-首席填坑官∙苏南",
     "模仿实现PC微信聊天","PC Windows 微信 聊天 移动聊天 免费 发信息 发图片 语音 weixin 离线消息 微博 私信 流量","微信","聊天","客服 系统","前端","React.js小书","教程","node.js","JavaScript 库","webpack","ES6","express js","scss","sass","构建用户界面","组件化","入门教程","redux","入门示例","demo","网易云音乐","网易云音乐 api"
   ],
   "dependencies": {
