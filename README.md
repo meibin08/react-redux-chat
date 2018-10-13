@@ -2,6 +2,7 @@
 
 ### 在线示例地址 [demo](https://meibin08.github.io/react-redux-chat/index.html "在线示例 @IT·平头哥联盟-首席填坑官∙苏南")
 
+了解更多？——[@IT·平头哥联盟](https://honeybadger8.github.io/blog/ "@IT·平头哥联盟-首席填坑官∙苏南")
 
 	该示例主要使用了react、redux、iscroll、fetch等组件实现模仿实现PC微信聊天，
 	实现了发送消息、模拟登录、暂时使用fetch定时请求更新接收消息等功能，
@@ -11,7 +12,7 @@
 	- 如有不足之处，欢迎拍砖指出，
 	- 如果该项目帮助了您，请记得帮我点颗星，就是对我最大的支持，
 	- 当然如果您在使用的过程中，有不懂的地方，或更好的建议，我们也可以一起来讨论，欢迎加入React\redux技术交流群一起讨论
-    - 了解更多？——[@IT·平头哥联盟](https://honeybadger8.github.io/blog/ "@IT·平头哥联盟-首席填坑官∙苏南")
+
 ****
 
 ## 技术交流
