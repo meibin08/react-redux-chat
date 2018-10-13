@@ -3,7 +3,6 @@
 ### 在线示例地址 [demo](https://meibin08.github.io/react-redux-chat/index.html "react+redux-chat 模仿实现PC微信聊天,react redux 入门示例, NodeJS 版,微信,聊天,mac chat,@IT·平头哥联盟,首席填坑官∙苏南,@IT·平头哥联盟-首席填坑官∙苏南")
 + 了解更多？——[@IT·平头哥联盟](https://honeybadger8.github.io/blog/ "@IT·平头哥联盟-首席填坑官∙苏南")
 
-
 	该示例主要使用了react、redux、iscroll、fetch等组件实现模仿实现PC微信聊天，
 	实现了发送消息、模拟登录、暂时使用fetch定时请求更新接收消息等功能，
 	实时通讯功能还在持续更新实现中，
