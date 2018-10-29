@@ -14,6 +14,7 @@
 ****
 
 ## 技术交流
+- 公众号：`honeyBadger8` 下方可扫码👇
 - 群：912594095、[386485473](https://shang.qq.com/wpa/qunwpa?idkey=d44baf17512787eb0e4f268849a3239d6b9675145a606e21b9a055176bd1c0e2 "React\redux技术交流群")
 - 博客：[@IT·平头哥联盟](https://honeybadger8.github.io/blog/ "@IT·平头哥联盟-首席填坑官∙苏南")
 
@@ -27,6 +28,10 @@
 ## 生成环境
 - npm run build
 
+## 关于我
+- 最近在写博客了，有兴趣的同学可以关注一下我和朋友一起整的公众号，专注于分享前端/测试的一些心得总结👇👇，
+- 公众号：`honeyBadger8`。
+![@IT·平头哥联盟-首席填坑官∙苏南，公众号：honeyBadger8，宝剑锋从磨砺出 梅花香自苦寒来，用心分享 做有温度的攻城狮，专注于分享前端、测试 等领域的积累，文章来源于(自己/群友)工作中积累的经验、填过的坑，希望能尽绵薄之力 助其他同学少走一些弯路](https://honeybadger8.github.io/blog/frontends/_banner/card.gif "@IT·平头哥联盟-首席填坑官∙苏南，公众号：honeyBadger8")
 
 ## 图片预览
 ![模仿实现PC微信聊天,PC Windows 微信 聊天 移动聊天 免费 发信息 发图片 语音 weixin 离线消息 微博 私信 流量,微信,聊天,客服 系统,前端,React.js小书,教程,react,reactjs,node.js,JavaScript 库,webpack,ES6,express js,scss,sass,构建用户界面,组件化,入门教程,网易云音乐,网易云音乐 api,技术交流,@IT·平头哥联盟,首席填坑官∙苏南,@IT·平头哥联盟-首席填坑官∙苏南](https://meibin08.github.io/react-redux-chat/images/index.png)
